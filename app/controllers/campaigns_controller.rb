@@ -1,5 +1,5 @@
 class CampaignsController < ApplicationController
-  before_action :set_publication
+  before_action :set_and_verify_publication
 
   # GET /publications/1/campaign/new
   def new
@@ -25,6 +25,7 @@ class CampaignsController < ApplicationController
   private
     def set_publication
       @publication = Publication.find(params[:publication_id])
+      render status: :unauthorized and return if current_user != @publication.user
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
