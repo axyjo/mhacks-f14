@@ -1,0 +1,14 @@
+<div class="publication-tiles">
+<% puts publications %>
+<% if publications.nil? %>
+This author currently has no publications.
+<% else %>
+<% publications.each do |publication| %>
+    <div class="container container-1 clearfix">
+        <div class="tile element"></div>
+        <p class="text title"><span><%= publication.title %></span></p>
+        <p class="text description"><span><%= publication.description %></span> </p>
+    </div>
+<%end %>
+<% end %>
+</div>
