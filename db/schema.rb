@@ -11,7 +11,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140906081540) do
+ActiveRecord::Schema.define(version: 20140906101049) do
+
+  create_table "campaigns", force: true do |t|
+    t.integer  "publication_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "campaigns", ["publication_id"], name: "index_campaigns_on_publication_id"
 
   create_table "contents", force: true do |t|
     t.string   "title"
@@ -53,6 +61,18 @@ ActiveRecord::Schema.define(version: 20140906081540) do
 
   add_index "reviews", ["publication_id"], name: "index_reviews_on_publication_id"
   add_index "reviews", ["user_id"], name: "index_reviews_on_user_id"
+
+  create_table "rewards", force: true do |t|
+    t.string   "title"
+    t.text     "description"
+    t.integer  "limit"
+    t.decimal  "price",       precision: 10, scale: 2
+    t.integer  "campaign_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "rewards", ["campaign_id"], name: "index_rewards_on_campaign_id"
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false
