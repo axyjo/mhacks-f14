@@ -75,6 +75,9 @@ ActiveRecord::Schema.define(version: 20140906101049) do
   add_index "rewards", ["campaign_id"], name: "index_rewards_on_campaign_id"
 
   create_table "users", force: true do |t|
+    t.string   "first_name"
+    t.string   "last_name"
+    t.text     "description"
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
     t.string   "reset_password_token"
