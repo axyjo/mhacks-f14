@@ -1,4 +1,4 @@
-<%= form_for(@review) do |f| %>
+<%= form_for([@publication, @review]) do |f| %>
   <% if @review.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@review.errors.count, "error") %> prohibited this review from being saved:</h2>
@@ -10,6 +10,12 @@
       </ul>
     </div>
   <% end %>
+
+  <div><%= f.label :title %><br />
+  <%= f.text_field :title, autofocus: true %></div>
+
+  <div><%= f.label :content %><br />
+  <%= f.text_area :content %></div>
 
   <div class="actions">
     <%= f.submit %>

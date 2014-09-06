@@ -51,34 +51,6 @@
     </style>
 
 
-
-
-    <script type="text/javascript" charset="utf-8">
-        $(document).on('click', '.hanging-close, .modal-backdrop, .modal', function (event) {
-            $("#trailer-video-container").empty();
-        });
-        $(document).on('click', '.movie-tile', function (event) {
-            var trailerYouTubeId = $(this).attr('data-trailer-youtube-id')
-            var sourceUrl = 'http://www.youtube.com/embed/' + trailerYouTubeId + '?autoplay=1&html5=1';
-            $("#trailer-video-container").empty().append($("<iframe></iframe>", {
-              'id': 'trailer-video',
-              'type': 'text-html',
-              'src': sourceUrl,
-              'frameborder': 0
-            }));
-        });
-        $(document).ready(function () {
-          $('.movie-tile').hide().first().show("fast", function showNext() {
-            $(this).next("div").show("fast", showNext);
-          });
-        });
-    </script>
-
-
-<div class="col-md-4 movie-tile" data-trailer-youtube-id="_EC2tmFVNNE" data-toggle="modal" data-target="#trailer">
-    <img src="http://larryfire.files.wordpress.com/2012/04/jk-rowling-official-portrait.jpg" width="220" height="342">
-</div>
-
 <div id="bio">
 <h1><%= @user.first_name %> <%= @user.last_name %></h1>
 <%= @user.description %>

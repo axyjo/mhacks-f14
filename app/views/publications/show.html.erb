@@ -1,22 +1,23 @@
-<div class="book-container">
-  <p class="text title"><b><span><%= @publication.title %></span></b></p>
-  <p class="text byline"><span>by <%= @publication.user.first_name %> <%= @publication.user.last_name %></span></p>
+<div class="page-header">
+  <h1><%= @publication.title %> <small>by <%= @publication.user.first_name %> <%= @publication.user.last_name %></small></h1>
 </div>
-<div class="container container-2 clearfix">
-  <div class="element element-1"></div>
-  <p class="text description"><span><%= @publication.description %></span></p>
-  <p class="text text-4"><span>Description:</span></p>
-</div>
-<div class="container container-3 clearfix">
-  <p class="text text-5"><span>Support <%= @publication.title %>:</span></p>
-  <button class="_button _button-1">Get the EBook</button>
-  <p class="text text-6"><span>X Readers</span></p>
-  <button class="_button _button-2">Get the hard copy</button>
-  <p class="text text-7"><span>X Copies Sold</span></p>
-  <div class="container clearfix">
-    <div class="element element-2"></div>
-    <div class="element element-3"></div>
+
+<div class="row">
+<div class="col-xs-8"><%= @publication.description %></div>
+<div class="col-xs-4">
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title">Contribute now!</h3>
   </div>
+  <div class="panel-body">
+    <p>Like what you see? Want to see more? Support <%= @publication.user.first_name %> <%= @publication.user.last_name %> and <%= @publication.title %> by contributing today!</p>
+
+    
+
+    <button type="button" class="btn btn-primary btn-lg btn-block">Take my money!</button>
+  </div>
+</div>
+</div>
 </div>
 
 <div class="reviews-container">
@@ -24,10 +25,18 @@
 	No reviews yet. Why don't you write one?
 	<% else %>
 		<% @publication.reviews.each do |review| %>
-			<%= render partial: '/rewviews/_show', locals: {review: review} %>
+      <% puts review %>
+			<%= render partial: '/reviews/show', locals: {review: review} %>
 		<% end %>
 	<% end %>
 </div>
 
+<div class="reviews-form">
+  <h3>Write a new review</h1>
+  <%= render partial: '/reviews/form' %>
+</div>
+
+<% if current_user && current_user.id == @publication.user_id %>
 <%= link_to 'Edit', edit_publication_path(@publication) %> |
+<% end %>
 <%= link_to 'Back', publications_path %>

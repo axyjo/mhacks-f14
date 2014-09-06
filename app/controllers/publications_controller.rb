@@ -13,6 +13,7 @@ class PublicationsController < ApplicationController
   # GET /publications/1
   # GET /publications/1.json
   def show
+    @review = Review.new
   end
 
   # GET /publications/new
