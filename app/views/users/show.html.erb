@@ -111,6 +111,6 @@
 <h1><%= @user.first_name %> <%= @user.last_name %></h1>
 <%= @user.description %>
 </div>
-
+<div class="clearfix"></div>
 <h1>Publications by this author:</h1>
 <%= render partial: '/publications/tiles', locals: {publications: @user.publications} %>
