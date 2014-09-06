@@ -3,9 +3,9 @@
 <% if publications.nil? %>
 This author currently has no publications.
 <% else %>
-<% publications.each do |publication| %>
+<% publications.shuffle.each do |publication| %>
     <div class="item clearfix genre-<%= publication.genre_id.to_s %> size-<%= publication.title.split().length.to_s %>">
-        <p class="text title"><%= link_to publication.title, publication_url %></p>
+        <p class="text title"><%= link_to publication.title, publication_url(publication.id) %></p>
         <p class="text description"><%= publication.description %></p>
     </div>
 <%end %>
@@ -13,12 +13,14 @@ This author currently has no publications.
 </div>
 
 <style>
+
 .item {
     min-width: 25%;
     max-width: 50%;
-    margin-bottom: 10px;
-    background: url(<%= image_url('shattered.png') %>);
+    margin: 10px 70px;
+    background-image: url(<%= image_url('shattered.png') %>);
 }
+
 
 .item .title {
     text-decoration: none;
@@ -33,6 +35,26 @@ This author currently has no publications.
     font-family: "Open Sans Condensed";
     font-style: italic;
     font-weight: 300;
+}
+
+.item.genre-1 {
+    background-color: #23A38F;
+}
+
+.genre-2 {
+    background-color: #B7C11E;
+}
+
+.genre-3 {
+    background-color: #EFF1C2;
+}
+
+.genre-4 {
+    background-color: #F0563D;
+}
+
+.genre-5 {
+    background-color: #2E313D;
 }
 
 .size-2 {
@@ -59,8 +81,7 @@ This author currently has no publications.
 <script>
 
 var wall = new freewall($(".publication-tiles")[0]);
-debugger;
-wall.fitWidth();
+wall.fitWidth($(".publication-tiles").width());
 
 
 </script>

@@ -3,4 +3,8 @@ class Publication < ActiveRecord::Base
   belongs_to :user
   has_many :reviews
   has_one :campaign
+
+  validates_presence_of :title
+  validates_presence_of :description
+  validates_presence_of :user
 end

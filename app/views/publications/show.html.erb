@@ -1,4 +1,33 @@
-<p id="notice"><%= notice %></p>
+<div class="book-container">
+  <p class="text title"><b><span><%= @publication.title %></span></b></p>
+  <p class="text byline"><span>by <%= @publication.user.first_name %> <%= @publication.user.last_name %></span></p>
+</div>
+<div class="container container-2 clearfix">
+  <div class="element element-1"></div>
+  <p class="text description"><span><%= @publication.description %></span></p>
+  <p class="text text-4"><span>Description:</span></p>
+</div>
+<div class="container container-3 clearfix">
+  <p class="text text-5"><span>Support <%= @publication.title %>:</span></p>
+  <button class="_button _button-1">Get the EBook</button>
+  <p class="text text-6"><span>X Readers</span></p>
+  <button class="_button _button-2">Get the hard copy</button>
+  <p class="text text-7"><span>X Copies Sold</span></p>
+  <div class="container clearfix">
+    <div class="element element-2"></div>
+    <div class="element element-3"></div>
+  </div>
+</div>
+
+<div class="reviews-container">
+	<% if @publication.reviews.nil? || @publication.reviews.length == 0 %>
+	No reviews yet. Why don't you write one?
+	<% else %>
+		<% @publication.reviews.each do |review| %>
+			<%= render partial: '/rewviews/_show', locals: {review: review} %>
+		<% end %>
+	<% end %>
+</div>
 
 <%= link_to 'Edit', edit_publication_path(@publication) %> |
 <%= link_to 'Back', publications_path %>

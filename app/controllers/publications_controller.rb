@@ -2,7 +2,7 @@ class PublicationsController < ApplicationController
   before_action :set_publication, only: [:show]
   before_action :set_user_publication, only: [:edit, :update, :destroy]
   before_action :verify_user, only: [:new, :edit, :create, :update, :destroy]
-  before_action :verify_publication_author, only: [:edit, :create, :update, :destroy]
+  before_action :verify_publication_author, only: [:edit, :update, :destroy]
 
   # GET /publications
   # GET /publications.json
@@ -76,7 +76,7 @@ class PublicationsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def publication_params
-      params[:publication]
+      params[:publication].permit(:title, :description, :genre_id)
     end
 
     def verify_publication_author
