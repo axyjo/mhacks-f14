@@ -1,6 +1,8 @@
 class ReviewsController < ApplicationController
   before_action :set_publication
   before_action :set_review, only: [:show, :edit, :update, :destroy]
+  before_action :verify_user, only: [:new, :edit, :create, :update, :destroy]
+  before_action :verify_review_author, only: [:edit, :create, :update, :destroy]
 
   # GET /publications/1/reviews
   # GET /publications/1/reviews.json
@@ -74,5 +76,9 @@ class ReviewsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def review_params
       params[:review]
+    end
+
+    def verify_review_author
+      render status: :not_found and return if @review.user != current_user
     end
 end
