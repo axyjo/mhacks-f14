@@ -14,7 +14,7 @@ Rails.application.routes.draw do
 
   resources :publications do
     resources :reviews
-    resource :campaign
+    resource :campaign, only: [:new, :create]
   end
   # Example resource route (maps HTTP verbs to controller actions automatically):
   #   resources :products
