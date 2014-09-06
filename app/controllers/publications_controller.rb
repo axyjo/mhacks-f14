@@ -1,5 +1,6 @@
 class PublicationsController < ApplicationController
-  before_action :set_publication, only: [:show, :edit, :update, :destroy]
+  before_action :set_publication, only: [:show]
+  before_action :set_user_publication, only: [:edit, :update, :destroy]
   before_action :verify_user, only: [:new, :edit, :create, :update, :destroy]
   before_action :verify_publication_author, only: [:edit, :create, :update, :destroy]
 
@@ -16,7 +17,7 @@ class PublicationsController < ApplicationController
 
   # GET /publications/new
   def new
-    @publication = Publication.new
+    @publication = current_user.publications.new
   end
 
   # GET /publications/1/edit
@@ -26,7 +27,7 @@ class PublicationsController < ApplicationController
   # POST /publications
   # POST /publications.json
   def create
-    @publication = Publication.new(publication_params)
+    @publication = current_user.publications.new(publication_params)
 
     respond_to do |format|
       if @publication.save
@@ -67,6 +68,10 @@ class PublicationsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_publication
       @publication = Publication.find(params[:id])
+    end
+
+    def set_user_publication
+      @publication = current_user.publications.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
