@@ -42,3 +42,4 @@ gem 'devise'
 gem 'omniauth'
 
 gem 'compass-rails', '>= 0.13.alpha.0'
+gem 'stripe', :git => 'https://github.com/stripe/stripe-ruby'
