@@ -13,3 +13,88 @@
  *= require_tree .
  *= require_self
  */
+
+
+@-webkit-keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        -webkit-transform: translateY(50px);
+    }
+
+    100% {
+        opacity: 1;
+        -webkit-transform: translateY(0);
+    };
+}
+
+@-webkit-keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        -webkit-transform: translateY(50px);
+    }
+
+    100% {
+        opacity: 1;
+        -webkit-transform: translateY(0);
+    };
+}
+
+body {
+    font-family: sans-serif;
+    font-size: 62.5%;
+    color: #434343;
+}
+
+
+
+h1 {
+    color: #fff;
+    font-size: 7em;
+    font-weight: bold;
+    line-height: 0.8em;
+}
+
+
+#header {
+    width: 100%;
+    height: 700px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: url("mainpic.jpg") no-repeat center;
+    background-size: 100%;
+
+}
+
+#header h1 {
+    vertical-align: middle;
+    text-align: center;
+    margin-top: 50px;
+    -webkit-animation: fadeInUp .6s .5s ease both;
+    -moz-animation: fadeInUp .6s .5s ease both;
+    -ms-animation: fadeInUp .6s .5s ease both;
+    -o-animation: fadeInUp .6s .5s ease both;
+    animation: fadeInUp .6s .5s ease both;
+
+}
+
+#header span {
+    font-size: 0.30em;
+    color: gray;
+}
+
+#content {
+    background-color: white;
+    width: 100%;
+    height: 700px;
+    margin-top: 700px;
+    position: absolute;
+}
+
+#footer {
+    background-color: black;
+    width: 100%;
+    margin-top: 1400px;
+    position: absolute;
+}
