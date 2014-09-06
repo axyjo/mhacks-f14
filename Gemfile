@@ -41,4 +41,4 @@ gem 'spring',        group: :development
 gem 'devise'
 gem 'omniauth'
 
-gem 'compass-rails'
+gem 'compass-rails', '>= 0.13.alpha.0'

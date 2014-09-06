@@ -136,7 +136,7 @@ PLATFORMS
 
 DEPENDENCIES
   coffee-rails (~> 4.0.0)
-  compass-rails
+  compass-rails (>= 0.13.alpha.0)
   devise
   jbuilder (~> 2.0)
   jquery-rails

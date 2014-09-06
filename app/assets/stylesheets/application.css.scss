@@ -1,19 +1,6 @@
-/*
- * This is a manifest file that'll be compiled into application.css, which will include all the files
- * listed below.
- *
- * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
- * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
- *
- * You're free to add application-wide styles to this file and they'll appear at the bottom of the
- * compiled file so the styles you add here take precedence over styles defined in any styles
- * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
- * file per style scope.
- *
- *= require_tree .
- *= require_self
- */
-
+@import "compass";
+@import "mixins";
+@import "base";
 
 @-webkit-keyframes fadeInUp {
     0% {
@@ -27,15 +14,15 @@
     };
 }
 
-@-webkit-keyframes fadeInUp {
+@-moz-keyframes fadeInUp {
     0% {
         opacity: 0;
-        -webkit-transform: translateY(50px);
+        -moz-transform: translateY(50px);
     }
 
     100% {
         opacity: 1;
-        -webkit-transform: translateY(0);
+        -moz-transform: translateY(0);
     };
 }
 
@@ -44,7 +31,6 @@ body {
     font-size: 62.5%;
     color: #434343;
 }
-
 
 
 h1 {
@@ -62,7 +48,7 @@ h1 {
     top: 0;
     left: 0;
     right: 0;
-    background: url("mainpic.jpg") no-repeat center;
+    background: image-url("mainpic.jpg") no-repeat center;
     background-size: 100%;
 
 }
