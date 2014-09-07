@@ -1,1 +1,9 @@
-<% puts @results %>
+<% if @results.length == 0 %>
+	We couldn't find anything with that query.
+<% else %>
+	<ul>
+	<% @results.each do |result| %>
+		<li><%= link_to result %></li>
+	<% end %>
+	</ul>
+<% end %>
