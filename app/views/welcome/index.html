@@ -1,18 +1,10 @@
-<header id="header" style="width: 100%">
-        <h1>PULP FICTION</h1>
-        <div class="img"></div>
-        <div class="orange">
-            <img src="<%= image_path("welcome/oranges.png") %>" style="height:200px">
-        </div>
-        <a href="#content" class="tour">Take the tour</a>
-        </header>
 
 
 <div id="bookmark">
     <div id="menu">
         <a href="/" id="home">Home</a>
-        <a href="/publications" id="products">Publications</a>
-        <a href="" id="about">About</a>
+        <a href="/publications" id="products">Browse</a>
+        <a href="/search" id="about">Search</a>
         <% if current_user %>
             <a href="/users/<%= current_user.id %>" id="contact">Profile</a>
         <% else %>
@@ -22,27 +14,34 @@
 </div>
 
 
+<div id="content">
+    <section id="header" style="width: 100%">
+        <h1>Pulp Fiction</h1>
+        <div class="subtitle">English, motherfucker. Do you read it?</div>
+        <div class="img"></div>
+        <div class="orange">
+            <img src="<%= image_path("welcome/oranges.png") %>">
+        </div>
+        <a href="#content" class="tour">Take the tour.</a>
+    </section>
 
 
-    <div id="content" style="margin-top:700px">
-        <section class="page bg--white">    
-            <div class="constrict">
-                <article class="text--right">
-                    <h2 style="padding-right:50px">Read a chapter of every book for free</h2>
-                </article>
-                <div class="position--left" style="padding-left:50px">
-                    <img src="<%= image_path("welcome/blank.png") %>" alt="X" height="700px">
-                </div>
+    <section class="page page1-scroll">    
+        <div class="constrict">
+            <article class="text--right">
+                <h2 style="padding-right:50px">Read the first chapter of every book for free.</h2>
+            </article>
+            <div class="position--left" style="padding-left:50px">
+                <img src="<%= image_path("welcome/ibooks.png") %>" alt="X" height="700px">
             </div>
-        </section>
-    </div>
+        </div>
+    </section>
 
 
-
-    <section class="page bg--gray"> 
+    <section class="page page2-scroll"> 
         <div class="constrict">
             <article class="text--left">
-                <h2 style="padding-left:50px; padding-right:0px">Help authors write books</h2>
+                <h2 style="padding-left:50px; padding-right:0px">Help authors write books.</h2>
             </article>
             <div class="position--right">
                 <img src="<%= image_path("welcome/JKRowling.png") %>" alt="X" height="700px">
@@ -50,38 +49,32 @@
         </div>
     </section>
 
-
-
-
-
-    <section class="page bg--white">    
+    <section class="page page3-scroll">    
         <div class="constrict">
             <article class="text--right">
-                <h2 style="padding-right:50px">Get the books you love in exchange for your support</h2>
+                <h2 style="padding-right:50px">Get the books you love in exchange for your support.</h2>
             </article>
             <div class="position--left"  style="padding-left:50px">
-                <img src="<%= image_path("welcome/harrypotter.jpg") %>" alt="X" height="700px">
+                <img src="<%= image_path("welcome/book.gif") %>" alt="X" height="700px">
             </div>
         </div>
     </section>
 
 
-    <section class="page bg--gray"> 
+    <section class="page page4-scroll"> 
         <div class="constrict">
             <article class="text--left">
-                <h2 style="padding-left:50px; padding-right:0px">Publish your own novel</h2>
+                <h2 style="padding-left:50px; padding-right:0px">Publish your own novel.</h2>
             </article>
             <div class="position--right">
-                <img src="" alt="X" height="700px">
+                <img src="<%= image_path("welcome/ccbookstack.png") %>" alt="X" height="700px">
             </div>
         </div>
     </section>
+</div>
 
-    <footer class="bg--black" style="bottom: 0">
-        <div class="constrict">
-            <img height="100" src="<%= image_path("welcome/mainpic2.png") %>" style="padding-left:50px" alt="X">
-            <article class="text--right">
-                <h2 style="color:white; margin-top: 40px; padding-right:50px">Pulp Fiction</h2>
-            </article>
-        </div>
-    </footer>
+<footer class="bg--black" style="bottom: 0">
+    <article class="text--right">
+        <h2 style="color:white; padding-right:50px">&copy; 2014 Pulp Fiction. Some images provided by csharron, and the Creative Commons.</h2>
+    </article>
+</footer>
