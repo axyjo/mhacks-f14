@@ -45,3 +45,4 @@ gem 'capistrano', group: :development
 gem 'rvm-capistrano', group: :development
 
 gem 'pg', group: :production
+gem 'pg_search'
