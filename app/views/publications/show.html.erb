@@ -14,7 +14,12 @@
     <p>Like what you see? Want to see more? Support <%= @publication.user.first_name %> <%= @publication.user.last_name %> and <%= @publication.title %> by contributing today!</p>
 
     <% @publication.rewards.each do |reward| %>
-      <div class="reward" data-id="<%= reward.id %>" data-title="<%= reward.title %>" data-amount="<%= (reward.price * 100).to_i %>"><span class="title"><%= reward.title %></span><span class="description"><%= reward.description %></span><div class="price"><%= reward.price %></div></div>
+      <div class="reward" data-id="<%= reward.id %>" data-title="<%= reward.title %>" data-amount="<%= (reward.price * 100).to_i %>">
+        <div class="price-thing">Pledge <span class="price"><%= reward.price %></span> or more</div>
+        <div class="desc-ting">
+          <span class="title"><%= reward.title %></span><span class="description"><%= reward.description %></span>
+        </div>
+      </div>
     <% end %>
 
     <% if current_user.nil? %>
@@ -29,6 +34,10 @@
 </div>
 
 <style>
+
+.reward {
+  margin-bottom: 1em;
+}
 .reward.active {
   font-weight: 700;
 }
