@@ -18,6 +18,7 @@ Rails.application.routes.draw do
   end
 
   post 'charges' => 'charges#create'
+  get 'search' => 'searches#search'
 
   resources :users, only: [:show]
   # Example resource route (maps HTTP verbs to controller actions automatically):

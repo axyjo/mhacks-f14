@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140907012738) do
+ActiveRecord::Schema.define(version: 20140907070800) do
 
   create_table "campaigns", force: true do |t|
     t.integer  "publication_id"
@@ -47,6 +47,14 @@ ActiveRecord::Schema.define(version: 20140907012738) do
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "pg_search_documents", force: true do |t|
+    t.text     "content"
+    t.integer  "searchable_id"
+    t.string   "searchable_type"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
   end
 
   create_table "publications", force: true do |t|
