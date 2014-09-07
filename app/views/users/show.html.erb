@@ -53,13 +53,16 @@
 
 <div id="bio">
 <% if current_user == @user %>
-<h1>Welcome back, <%= @user.first_name %>!</h1>
+    <h1>Welcome back, <%= @user.first_name %>!</h1>
+    <div class="clearfix"></div>
+    <h1>Your publications:</h1>
 <% else %>
-<h1><%= @user.first_name %> <%= @user.last_name %></h1>
+    <h1><%= @user.first_name %> <%= @user.last_name %></h1>
+
+    <%= @user.description %>
+    </div>
+    <div class="clearfix"></div>
+    <h1>Publications by this author:</h1>
 <% end %>
 
-<%= @user.description %>
-</div>
-<div class="clearfix"></div>
-<h1>Publications by this author:</h1>
 <%= render partial: '/publications/tiles', locals: {publications: @user.publications} %>
