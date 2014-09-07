@@ -10,6 +10,11 @@ class PublicationsController < ApplicationController
     @publications = Publication.all
   end
 
+  def search
+    @publications = Publication.basic_search(params[:q] || '')
+    render 'index'
+  end
+
   # GET /publications/1
   # GET /publications/1.json
   def show
