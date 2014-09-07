@@ -1,12 +1,15 @@
 <!DOCTYPE html>
-<html>
+<html class="csstransitions no-touch" lang="en">
 <head>
+	    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+
   <title>Pulp Fiction</title>
   <%= stylesheet_link_tag    'welcome', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'welcome', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
-<body>
+<body class="fade">
   <p class="notice"><%= notice %></p>
   <p class="alert"><%= alert %></p>
   <%= yield %>
