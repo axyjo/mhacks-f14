@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140906101049) do
+ActiveRecord::Schema.define(version: 20140907012738) do
 
   create_table "campaigns", force: true do |t|
     t.integer  "publication_id"
@@ -20,6 +20,17 @@ ActiveRecord::Schema.define(version: 20140906101049) do
   end
 
   add_index "campaigns", ["publication_id"], name: "index_campaigns_on_publication_id"
+
+  create_table "charges", force: true do |t|
+    t.string   "token"
+    t.integer  "reward_id"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "charges", ["reward_id"], name: "index_charges_on_reward_id"
+  add_index "charges", ["user_id"], name: "index_charges_on_user_id"
 
   create_table "contents", force: true do |t|
     t.string   "title"
