@@ -51,6 +51,33 @@
     </style>
 
 
+<% if @user.id == 3 %>
+    <div class="modal" id="trailer">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <a href="#" class="hanging-close" data-dismiss="modal" aria-hidden="true">
+            <img src="https://lh5.ggpht.com/v4-628SilF0HtHuHdu5EzxD7WRqOrrTIDi_MhEG6_qkNtUK5Wg7KPkofp_VJoF7RS2LhxwEFCO1ICHZlc-o_=s0#w=24&h=24"/>
+          </a>
+          <div class="scale-media" id="trailer-video-container">
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container">
+          <div class="navbar-header">
+            <a class="navbar-brand" href="#">Fund this Author</a>
+          </div>
+        </div>
+      </div>
+    </div>
+<div class="col-md-4 movie-tile" data-trailer-youtube-id="mC_wGnuc9mo" data-toggle="modal" data-target="#trailer">
+    <img src="http://larryfire.files.wordpress.com/2012/04/jk-rowling-official-portrait.jpg" width="220" height="342">
+</div>
+<% end %>
+
+
 <div id="bio">
 <% if current_user == @user %>
     <h1>Welcome back, <%= @user.first_name %>!</h1>
