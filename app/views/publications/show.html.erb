@@ -3,7 +3,12 @@
 </div>
 
 <div class="row">
-<div class="col-xs-8"><%= @publication.description %></div>
+<div class="col-xs-8">
+  <p><%= @publication.description %></p>
+
+  <p>Want to check out the book?</p>
+  <button type="button" class="btn btn-success btn-lg active">Download Free Chapter!</button>
+</div>
 <div class="col-xs-4">
 <% if !@publication.rewards.empty? %>
 <div class="panel panel-default">
