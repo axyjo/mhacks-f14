@@ -5,6 +5,7 @@
 <div class="row">
 <div class="col-xs-8"><%= @publication.description %></div>
 <div class="col-xs-4">
+<% if !@publication.rewards.empty? %>
 <div class="panel panel-default">
   <div class="panel-heading">
     <h3 class="panel-title">Contribute now!</h3>
@@ -12,11 +13,12 @@
   <div class="panel-body">
     <p>Like what you see? Want to see more? Support <%= @publication.user.first_name %> <%= @publication.user.last_name %> and <%= @publication.title %> by contributing today!</p>
 
-    
+
 
     <button type="button" class="btn btn-primary btn-lg btn-block">Take my money!</button>
   </div>
 </div>
+<% end %>
 </div>
 </div>
 

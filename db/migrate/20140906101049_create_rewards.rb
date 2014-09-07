@@ -5,7 +5,7 @@ class CreateRewards < ActiveRecord::Migration
       t.text :description
       t.integer :limit
       t.decimal :price, precision: 10, scale: 2
-      t.references :campaign, index: true
+      t.references :publication, index: true
 
       t.timestamps
     end

@@ -14,9 +14,7 @@ Rails.application.routes.draw do
 
   resources :publications do
     resources :reviews
-    resource :campaign, only: [:new, :create] do
-      resources :rewards
-    end
+    resources :rewards
   end
 
   resources :users, only: [:show]

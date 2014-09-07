@@ -66,13 +66,13 @@ ActiveRecord::Schema.define(version: 20140906101049) do
     t.string   "title"
     t.text     "description"
     t.integer  "limit"
-    t.decimal  "price",       precision: 10, scale: 2
-    t.integer  "campaign_id"
+    t.decimal  "price",          precision: 10, scale: 2
+    t.integer  "publication_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  add_index "rewards", ["campaign_id"], name: "index_rewards_on_campaign_id"
+  add_index "rewards", ["publication_id"], name: "index_rewards_on_publication_id"
 
   create_table "users", force: true do |t|
     t.string   "first_name"

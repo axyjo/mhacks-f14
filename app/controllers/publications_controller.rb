@@ -14,6 +14,7 @@ class PublicationsController < ApplicationController
   # GET /publications/1.json
   def show
     @review = Review.new
+    @publication
   end
 
   # GET /publications/new
@@ -68,7 +69,7 @@ class PublicationsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_publication
-      @publication = Publication.find(params[:id])
+      @publication = Publication.preload(:rewards).find(params[:id])
     end
 
     def set_user_publication

@@ -17,8 +17,7 @@
   <div><%= f.label :description %><br />
   <%= f.text_area :description %></div>
 
-  <div><%= f.label :genre_id %><br />
-  <%= collection_select(:genre, :genre_id, Genre.all, :id, :name) %>
+  <div><%= f.label :genre_id %><br /></div>
 
   <div class="actions">
     <%= f.submit %>
