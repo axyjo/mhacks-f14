@@ -12,7 +12,10 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require ./bootstrap/tooltip
+//= require_tree ./bootstrap
 //= require turbolinks
 //= require freewall
 //= require searches
 //= require users
+
