@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  token: MyString
+  reward_id: 
+  user_id: 
+
+two:
+  token: MyString
+  reward_id: 
+  user_id: 
