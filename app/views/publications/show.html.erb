@@ -100,6 +100,7 @@ $(".reward").on('click', function() {
   	<% if @publication.reviews.nil? || @publication.reviews.length == 0 %>
   	No reviews yet. Why don't you write one?
   	<% else %>
+      <h3>Reviews</h3>
   		<% @publication.reviews.each do |review| %>
   			<%= render partial: '/reviews/show', locals: {review: review} %>
   		<% end %>
