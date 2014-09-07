@@ -32,9 +32,6 @@ gem 'spring',        group: :development
 # Use unicorn as the app server
 gem 'unicorn'
 
-# Use Capistrano for deployment
-# gem 'capistrano-rails', group: :development
-
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 
@@ -43,3 +40,6 @@ gem 'omniauth'
 
 gem 'compass-rails', '>= 0.13.alpha.0'
 gem 'stripe', :git => 'https://github.com/stripe/stripe-ruby'
+
+gem 'capistrano', group: :development
+gem 'rvm-capistrano', group: :development
