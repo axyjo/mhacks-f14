@@ -13,14 +13,66 @@
   <div class="panel-body">
     <p>Like what you see? Want to see more? Support <%= @publication.user.first_name %> <%= @publication.user.last_name %> and <%= @publication.title %> by contributing today!</p>
 
+    <% @publication.rewards.each do |reward| %>
+      <div class="reward" data-id="<%= reward.id %>" data-title="<%= reward.title %>" data-amount="<%= (reward.price * 100).to_i %>"><span class="title"><%= reward.title %></span><span class="description"><%= reward.description %></span><div class="price"><%= reward.price %></div></div>
+    <% end %>
 
-
-    <button type="button" class="btn btn-primary btn-lg btn-block">Take my money!</button>
+    <button type="button" class="btn disabled btn-primary btn-lg btn-block">Take my money!</button>
   </div>
 </div>
 <% end %>
 </div>
 </div>
+
+<style>
+.reward.active {
+  font-weight: 700;
+}
+
+.reward .title:after {
+  content: " - ";
+}
+
+.reward .price:before {
+  content: "$";
+}
+</style>
+
+<script src="https://checkout.stripe.com/checkout.js"></script>
+<script>
+var email = "<%= current_user.email %>",
+  handler = StripeCheckout.configure({
+  key: 'pk_test_7to8XU3q719PFi9D3nmQ4iVt',
+  //image: '/square-image.png',
+  token: function(token) {
+    console.log(arguments, rewardId);
+
+
+    // Use the token to create the charge with a server-side script.
+    // You can access the token ID with `token.id`
+  }
+});
+
+$(".reward").on('click', function() {
+  var data = $(this).data();
+  rewardId = data.id;
+  $(this).siblings().removeClass('active');
+  $(this).addClass('active');
+
+
+  $("button.btn-block").off('click');
+  $("button.btn-block").on('click', function(e) {
+    handler.open({
+      name: 'Pulp Fiction',
+      email: email,
+      description: data.title,
+      amount: data.amount
+    });
+  });
+  $("button.btn-block").removeClass('disabled');
+});
+
+</script>
 
 <div class="reviews-container">
 	<% if @publication.reviews.nil? || @publication.reviews.length == 0 %>
