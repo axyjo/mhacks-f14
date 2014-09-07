@@ -5,6 +5,11 @@ source 'https://rubygems.org'
 gem 'rails', '4.1.5'
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
+
+# DBs for prod.
+gem 'pg', group: :production
+gem 'pg_search'
+
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.3'
 # Use Uglifier as compressor for JavaScript assets
@@ -43,6 +48,3 @@ gem 'stripe', :git => 'https://github.com/stripe/stripe-ruby'
 
 gem 'capistrano', group: :development
 gem 'rvm-capistrano', group: :development
-
-gem 'pg', group: :production
-gem 'pg_search'
