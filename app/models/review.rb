@@ -1,4 +1,6 @@
 class Review < ActiveRecord::Base
+  include PgSearch
+
   belongs_to :publication
   belongs_to :user
 

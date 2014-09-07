@@ -1,4 +1,6 @@
 class Publication < ActiveRecord::Base
+  include PgSearch
+
   belongs_to :genre
   belongs_to :user
   has_many :reviews
