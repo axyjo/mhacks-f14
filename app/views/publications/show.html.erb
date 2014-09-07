@@ -102,6 +102,6 @@ $(".reward").on('click', function() {
 </div>
 
 <% if current_user && current_user.id == @publication.user_id %>
-<%= link_to 'Edit', edit_publication_path(@publication) %> | <%= link_to 'Add Rewards', publication_rewards(@publication) %>
+<%= link_to 'Edit', edit_publication_path(@publication) %> | <%= link_to 'Add Rewards', publication_rewards_path(@publication) %>
 <% end %>
 <%= link_to 'Back', publications_path %>
