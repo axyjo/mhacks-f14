@@ -43,3 +43,5 @@ gem 'stripe', :git => 'https://github.com/stripe/stripe-ruby'
 
 gem 'capistrano', group: :development
 gem 'rvm-capistrano', group: :development
+
+gem 'pg', group: :production
