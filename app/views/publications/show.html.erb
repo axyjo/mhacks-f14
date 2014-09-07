@@ -17,7 +17,11 @@
       <div class="reward" data-id="<%= reward.id %>" data-title="<%= reward.title %>" data-amount="<%= (reward.price * 100).to_i %>"><span class="title"><%= reward.title %></span><span class="description"><%= reward.description %></span><div class="price"><%= reward.price %></div></div>
     <% end %>
 
-    <button type="button" class="btn disabled btn-primary btn-lg btn-block">Take my money!</button>
+    <% if current_user.nil? %>
+      <a type="button" href="<%= new_user_session_path %>" class="btn btn-success btn-lg btn-block">Login to contribute!</a>
+    <% else %>
+      <button type="button" class="btn disabled btn-primary btn-lg btn-block">Take my money!</button>
+    <% end %>
   </div>
 </div>
 <% end %>
@@ -40,7 +44,7 @@
 
 <script src="https://checkout.stripe.com/checkout.js"></script>
 <script>
-var email = "<%= current_user.email %>",
+var email = "<%= '' if current_user.nil? or current_user.email %>",
   handler = StripeCheckout.configure({
   key: 'pk_test_7to8XU3q719PFi9D3nmQ4iVt',
   //image: '/square-image.png',
@@ -68,8 +72,8 @@ $(".reward").on('click', function() {
   $(this).addClass('active');
 
 
-  $("button.btn-block").off('click');
-  $("button.btn-block").on('click', function(e) {
+  $("button.btn-block.btn-primary").off('click');
+  $("button.btn-block.btn-primary").on('click', function(e) {
     handler.open({
       name: 'Pulp Fiction',
       email: email,
@@ -77,28 +81,27 @@ $(".reward").on('click', function() {
       amount: data.amount
     });
   });
-  $("button.btn-block").removeClass('disabled');
+  $("button.btn-block.btn-primary").removeClass('disabled');
 });
 
 </script>
 
-<div class="reviews-container">
+<div class="reviews-container row">
 	<% if @publication.reviews.nil? || @publication.reviews.length == 0 %>
 	No reviews yet. Why don't you write one?
 	<% else %>
 		<% @publication.reviews.each do |review| %>
-      <% puts review %>
 			<%= render partial: '/reviews/show', locals: {review: review} %>
 		<% end %>
 	<% end %>
 </div>
 
-<div class="reviews-form">
+<div class="reviews-form row">
   <h3>Write a new review</h1>
   <%= render partial: '/reviews/form' %>
 </div>
 
 <% if current_user && current_user.id == @publication.user_id %>
-<%= link_to 'Edit', edit_publication_path(@publication) %> |
+<%= link_to 'Edit', edit_publication_path(@publication) %> | <%= link_to 'Add Rewards', publication_rewards(@publication) %>
 <% end %>
 <%= link_to 'Back', publications_path %>
