@@ -11,7 +11,7 @@ class PublicationsController < ApplicationController
   end
 
   def search
-    @publications = Publication.basic_search(params[:q] || '')
+    @publications = Publication.search(params[:q] || '')
     render 'index'
   end
 
