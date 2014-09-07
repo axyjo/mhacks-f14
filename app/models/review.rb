@@ -1,7 +1,4 @@
 class Review < ActiveRecord::Base
-  include PgSearch
-  multisearchable :against => [:title, :content]
-
   belongs_to :publication
   belongs_to :user
 
